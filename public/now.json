@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "alias": "kclynch94-whos-got-next-app",
+    "name": "whos-got-next-app",
+    "routes": [
+        {
+          "src": "^/static/(.*)",
+          "dest": "/static/$1"
+        },
+        {
+          "src": ".*",
+          "dest": "/index.html"
+        }
+    ]
+  }
