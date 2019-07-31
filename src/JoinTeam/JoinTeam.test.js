@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LandingPage from './LandingPage';
+import JoinTeam from './JoinTeam';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<LandingPage />, div);
+  const props = {
+    match: { params: {} },
+    history: {
+      push: () => {}
+    },
+  }
+  ReactDOM.render(<JoinTeam {...props} />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

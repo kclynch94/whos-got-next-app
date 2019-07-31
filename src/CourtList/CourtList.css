@@ -1,0 +1,17 @@
+.CourtList_list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.CourtList_facility {
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: #DCC7AA;
+    margin-bottom: 10px;
+}
+
+form {
+    margin-bottom: 10px;
+}
+

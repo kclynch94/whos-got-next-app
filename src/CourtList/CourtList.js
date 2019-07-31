@@ -1,65 +1,56 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import Court from '../Court/Court';
+import ApiContext from '../ApiContext';
+import Facility from '../Facility/Facility';
 import './CourtList.css';
 
 class CourtList extends Component {
-    static defaultProps = {
-        match: {
-            params: {}
+    static contextType = ApiContext;
+
+    state = {
+        facilitiesList: []
+    }
+
+    componentDidMount() {
+        if (this.context.selectedOrganization) {
+            const facilities = this.context.facilities
+            this.setState({facilitiesList: facilities.filter(facility => facility.org_id === +this.context.selectedOrganization.id)})
         }
     }
 
+    getFacilitiesList = e => {
+        const facilities = this.context.facilities
+        this.setState({facilitiesList: facilities.filter(facility => facility.org_id === +e.target.value)}) 
+    }
+
     render() {
+        const organizations = this.context.organizations
+        const orgList = organizations.map(o => (
+            <option key={o.id} value={o.id}>{o.org_name}</option>
+        ));
+        const facilitiesList = this.state.facilitiesList.map(f => (
+            <li className='CourtList_facility' key={f.id}>
+                <Facility
+                    facilityId={f.id}
+                    facilityName={f.facility_name} />
+            </li>
+        ));
+            
         return(
-            <div className='CourtList'>
-                <section>
-                    <header>
-                        <h2>Gym 1</h2>
-                    </header>
-                    <section>
-                        <header>
-                            <h2>Court 1</h2>
-                            <p><em>Live game indicator</em></p>
-                        </header>
-                        <span>Martin1423's got next!</span>
-                        <button>Join his team. 1 spot</button>
-                        <NavLink to='/team-builder'>Got Next?</NavLink>
-                    </section>
-                    <section>
-                        <header>
-                            <h2>Court 2</h2>
-                            <p><em>Live game indicator</em>></p>
-                        </header>
-                        <NavLink to='/team-builder'>Got Next?</NavLink>
-                    </section>
-                    <section>
-                        <header>
-                            <h2>Court 3</h2>
-                            <button>START GAME</button>
-                        </header>
-                    </section>
-                </section>
-                <section>
-                    <header>
-                        <h2>Gym 2</h2>
-                    </header>
-                    <section>
-                        <header>
-                            <h2>Court 1</h2>
-                            <p><em>Live game indicator</em></p>
-                        </header>
-                        <span>Martin1423's got next!</span>
-                        <button>Join his team. 1 spot</button>
-                        <NavLink to='/team-builder'>Got Next?</NavLink>
-                    </section>
-                    <section>
-                        <header>
-                            <h2>Court 2</h2>
-                        </header>
-                        <button>START GAME</button>
-                    </section>
-                </section>
+            <div>
+                <div className='LocationPicker'>
+                <form>
+                    <label htmlFor="organization">Where do you play? </label>
+                    <select value={this.context.selectedOrganization && this.context.selectedOrganization.id} onChange={this.getFacilitiesList}>
+                        <option>Please Select Your Organization</option>
+                        {orgList}
+                    </select>
+                </form>
+                </div>
+                {!!this.state.facilitiesList.length && (<div className='CourtList'>
+                    <ul className='CourtList_list'>
+                        {facilitiesList}
+                    </ul>
+                </div>)}
             </div>
         )
     }

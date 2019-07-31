@@ -1,13 +1,50 @@
-nav,
+.App {
+  text-align: center;
+  height: 100%;
+  margin: 10px auto;
+  padding: 5px;
+  color: #444;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.App_main {
+  min-height: calc(100vh - (300px));
+}
+
+.header_link {
+  font-family: 'Alegreya SC', serif;
+  color: #F7C331;
+  text-decoration: none;
+  font-size: 60px;
+}
+
+h2, h3 {
+  font-family: 'Bitter', serif;
+}
+
+button {
+  border: 1px solid #aaa;
+  background-color: #eee;
+  font-size: 1.1em;
+  border-radius: 4px;
+  font-family: 'Lato', sans-serif;
+}
 footer {
   padding: 1% 0;
   background-color: #aaa;
 }
 
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
+input, select {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 17px;
+  color: #444;
+  max-width: 30%;
+}
+
+@media screen and (min-width: 460px) {
+  body,
+  input,
+  textarea {
+    font-size: 1.1em;
+  }
 }
