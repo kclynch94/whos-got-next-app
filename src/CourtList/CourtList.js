@@ -41,7 +41,7 @@ class CourtList extends Component {
                 <form>
                     <label htmlFor="organization">Where do you play? </label>
                     <select value={this.context.selectedOrganization && this.context.selectedOrganization.id} onChange={this.getFacilitiesList}>
-                        <option>Please Select Your Organization</option>
+                        <option>Please Select An Organization</option>
                         {orgList}
                     </select>
                 </form>
