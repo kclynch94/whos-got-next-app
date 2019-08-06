@@ -41,10 +41,15 @@ input, select {
   max-width: 30%;
 }
 
-@media screen and (min-width: 460px) {
-  body,
-  input,
-  textarea {
-    font-size: 1.1em;
+@media only screen and (max-width: 600px) {
+  button, .button, .likeAButton {
+    font-size: .6em;
+    min-width: 100px;
+    max-height: 20px;
+  }
+  .to_courts_button {
+    font-size: .6em;
+    min-width: 100px;
+    max-height: 50px;
   }
 }

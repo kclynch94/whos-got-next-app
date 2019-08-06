@@ -45,6 +45,32 @@ class Court extends Component {
         const courtId= this.props.courtId
         const teams = this.context.teams
         const courtTeams = teams.filter(t => t.court_id === courtId)
+        if (courtTeams.length === 0) {
+          const activegame = false
+          const newCourt = { courtId, activegame }
+
+          fetch(`${config.API_ENDPOINT}/courts/${courtId}`, {
+              method: 'PATCH',
+              body: JSON.stringify(newCourt),
+              headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${config.API_KEY}`
+              },
+            })
+            .then(res => {
+              if (!res.ok){
+                return res.json().then(error => Promise.reject(error))
+              }
+              return res.json()
+            })
+            .then((court) => {
+              this.context.updateCourt(court)
+            })
+            .catch(error => {
+              console.error(error)
+              this.setState({ error })
+            })
+      } else if (courtTeams.legth > 0) {
         const teamId = courtTeams[0].id
 
         fetch(`${config.API_ENDPOINT}/teams/${teamId}`, {
@@ -60,12 +86,14 @@ class Court extends Component {
           })
           .then(() => {
             this.context.deleteTeam(teamId)
-          })
-          .catch(error => {
-            console.error(error)
-            this.setState({ error })
-          })
+        })
+        .catch(error => {
+          console.error(error)
+          this.setState({ error })
+        })
     }
+  }
+    
 
     render() {
         const { court_name, courtId, activeGame } = this.props

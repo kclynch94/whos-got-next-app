@@ -25,7 +25,6 @@ input, select {
     border-color: #F7882F;
     border-radius: 5px;
     font-size: 20px;
-    min-height: 32px;
 }
 
 .button:hover {
