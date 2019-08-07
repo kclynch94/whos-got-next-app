@@ -18,7 +18,7 @@ Use the app to see what courts near you have active games. Don't drive out to th
 
 Who's Got Next? is a white label product that is designed to be rebranded to fit any organization. For demonstration purposes, the next page includes a few examples of organizations to choose from (Community Centers, Fitness Gym, Universities). Click through to see the courts interface!
 
-![picture of the user interface](https://www.screencast.com/t/IIM6022EFYAr)
+![picture of the user interface](C:\Users\Kevin Lynch\thinkfulProjects\whos-got-next-app\WGN_user_interface.png)
 
 ## Technology Used
 
