@@ -10,6 +10,7 @@ class LandingPage extends Component {
     }
 
     render() {
+        console.log(process.env.PUBLIC_URL)
         return(
             <div className='LandingPage'>
                 <section>
