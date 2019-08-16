@@ -123,7 +123,7 @@ class Court extends Component {
             return(
                 <div className='court'>
                     <h3>{court_name}</h3>
-                    <p className='next_team'>{courtTeams[0].team_name}`s has next. They have {emptySpot} spot(s) available</p>
+                    <p className='next_team'>Team {courtTeams[0].team_name} has next. They have {emptySpot} spot(s) available</p>
                     <NavLink className='likeAButton' to={`/join-team/${teamId}`}>JOIN TEAM</NavLink>
                     <NavLink className='likeAButton' to={`/team-builder/${courtId}`}>CLAIM NEXT</NavLink>
                     <button className='button' onClick={this.handleNextGame}>NEXT GAME  ></button>
@@ -133,7 +133,7 @@ class Court extends Component {
             return(
                 <div className='court'>
                     <h3>{court_name}</h3>
-                    <p className='next_team'>{courtTeams[0].team_name}`s has next. Their team is full.</p>
+                    <p className='next_team'>Team {courtTeams[0].team_name} has next. Their team is full.</p>
                     <NavLink className='likeAButton' to={`/team-builder/${courtId}`}>CLAIM NEXT</NavLink>
                     <button className='button' onClick={this.handleNextGame}>NEXT GAME ></button>
                 </div>

@@ -17,7 +17,7 @@ class LandingPage extends Component {
                     <header>
                         <h2>Claim the court</h2>
                     </header>
-                    <p>Who's Got Next? allows you to be be next in line to play on a basketbaall court. Claim the spot for you or your whole team </p>
+                    <p>Who's Got Next? allows you to be be next in line to play on a basketball court. Claim the spot for you or your whole team </p>
                 </section>
                 <section>
                     <header>
