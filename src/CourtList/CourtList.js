@@ -37,8 +37,8 @@ class CourtList extends Component {
             
         return(
             <div>
-                <div className='LocationPicker'>
-                <form>
+                <div>
+                <form className='locationPicker'>
                     <label htmlFor="organization">Where do you play? </label>
                     <select value={this.context.selectedOrganization && this.context.selectedOrganization.id} onChange={this.getFacilitiesList}>
                         <option>Please Select An Organization</option>
